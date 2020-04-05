@@ -6,20 +6,20 @@
         <v-card-text>Are you sure you want to logout ChatApp?</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat text color="grey darken-1" @click="closeDialog"
-            >Close</v-btn
-          >
-          <v-btn flat text color="green darken-1" @click="logout">Yes</v-btn>
+          <v-btn text color="grey darken-1" @click="closeDialog">Close</v-btn>
+          <v-btn text color="green darken-1" @click="logout">Yes</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
   </v-layout>
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "DialogLogout",
   data: () => ({
-    openDialog: false
+    // openDialog: false
   }),
   components: {
     // HelloWorld
@@ -27,8 +27,14 @@ export default {
   methods: {
     logout() {
       console.log("logout");
+      this.$store.dispatch("logout");
     },
-    closeDialog() {}
+    closeDialog() {
+      this.$store.commit("switchLogoutDialog", false);
+    }
+  },
+  computed: {
+    ...mapState(["openDialog"])
   }
 };
 </script>

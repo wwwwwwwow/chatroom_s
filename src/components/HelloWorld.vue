@@ -38,17 +38,33 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <v-progress-linear
+          indeterminate
+          color="primary"
+          class="mb-0"
+          v-if="isLoading"
+        ></v-progress-linear>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "HelloWorld",
 
   data: () => ({}),
+  computed: {
+    ...mapState(["isLoading"])
+  },
   methods: {
     login() {
       console.log("login");
+      this.$store.dispatch("login");
+      this.$store.commit("switchLoading", true);
     }
   }
 };

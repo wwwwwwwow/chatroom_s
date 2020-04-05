@@ -4,7 +4,7 @@ import vuetify from "./plugins/vuetify";
 import router from "./router";
 import store from "./store";
 import { firestorePlugin } from "vuefire";
-import db from "./db";
+import db from "./db.js";
 
 Vue.use(firestorePlugin);
 

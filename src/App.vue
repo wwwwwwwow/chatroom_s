@@ -2,8 +2,9 @@
   <v-app>
     <Navbar />
     <v-content>
-      <HelloWorld />
-      <Chatroom />
+      <!-- <HelloWorld /> -->
+      <!-- <Chatroom /> -->
+      <router-view />
     </v-content>
     <DialogLogout />
   </v-app>
@@ -11,18 +12,18 @@
 
 <script>
 import Navbar from "./components/Navbar";
-import HelloWorld from "./components/HelloWorld";
+// import HelloWorld from "./components/HelloWorld";
 import DialogLogout from "./components/DialogLogout";
-import Chatroom from "./components/Chatroom";
+// import Chatroom from "./components/Chatroom";
 
 export default {
   name: "App",
 
   components: {
     Navbar,
-    HelloWorld,
-    DialogLogout,
-    Chatroom
+    // HelloWorld,
+    DialogLogout
+    // Chatroom
   },
 
   data: () => ({
